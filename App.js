@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerToggleButton } from '@react-navigation/drawer';
 import { Text } from 'react-native';
 
 
@@ -32,7 +32,14 @@ function SettingsScreen() {
 function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
+      <Drawer.Navigator
+      screenOptions={{
+        drawerPosition: 'left',
+        headerLeft: false,
+        headerRight: ()=><DrawerToggleButton />,
+      }}
+      
+      >
         <Drawer.Screen name="Стрес" component={StressScreen} />
         <Drawer.Screen name="iCover" component={IcoverScreen} />
         <Drawer.Screen name="Адаптація під впливом стресу" component={AdaptationScreen} />
