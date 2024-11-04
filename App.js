@@ -1,7 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerToggleButton, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { Text, View, Image,StyleSheet } from 'react-native';
+import { Text, View, Image, Linking} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import iconSet from '@expo/vector-icons/build/FontAwesome6';
 
 
 import AdaptationScreen from './pages/Adaptation';
@@ -14,6 +15,7 @@ import SkillsScreen from './pages/Skills';
 import SleepScreen from './pages/Sleep';
 import StressScreen from './pages/Stress';
 import GurtabilityScreen from './pages/Gurtability';
+import Icon from 'react-native-ionicons';
 
 
 const Drawer = createDrawerNavigator();
@@ -29,7 +31,35 @@ function CustomDrawerContent(props){
         />
       </View>
       <DrawerItemList {...props}/>
+      <View style={{flexDirection:'row', justifyContent:'space-between', padding:32, marginTop: 85}}>
+      <Ionicons
+      name='logo-instagram'
+      size={30}
+      style={{marginHorizontal:10}}
+      onPress={()=>Linking.openURL('https://instagram.com/126_brigade')}
+      
+      />
+       <Ionicons
+      name='logo-facebook'
+      size={30}
+      style={{marginHorizontal:10}}
+      onPress={()=>Linking.openURL('https://facebook.com/126brigadatro')}
+      
+      />
+      
+      <Ionicons
+      name='logo-youtube'
+      size={30}
+      style={{marginHorizontal:10}}
+      onPress={()=>Linking.openURL('https://youtube.com/@126brigadatro')}
+      
+      />
+
+      
+
+      </View>
     </DrawerContentScrollView>
+   
   )
 
 }
@@ -61,11 +91,12 @@ function App() {
       >
         <Drawer.Screen name="Стрес" component={StressScreen}
         options={{
-          title: "Стрес",
+         
           drawerIcon: ({focused, size})=>(
             <Ionicons name="thunderstorm-outline" size={32} color="#3b019a" />
             
           ),
+          drawerLabelStyle:{ fontSize: 20}
           
         }}
         
