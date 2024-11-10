@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerToggleButton, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { Text, View, Image, Linking} from 'react-native';
+import { Text, View, Image, Linking, SafeAreaView} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import iconSet from '@expo/vector-icons/build/FontAwesome6';
+
 
 
 import AdaptationScreen from './pages/Adaptation';
@@ -15,23 +15,26 @@ import SkillsScreen from './pages/Skills';
 import SleepScreen from './pages/Sleep';
 import StressScreen from './pages/Stress';
 import GurtabilityScreen from './pages/Gurtability';
-import Icon from 'react-native-ionicons';
+
+
+
 
 
 const Drawer = createDrawerNavigator();
 
 function CustomDrawerContent(props){
   return(
-    <DrawerContentScrollView {...props}>
+    
+    <DrawerContentScrollView {...props} >
       <View style={{ alignItems: 'center', marginVertical: 20}}>
         <Image 
         source={require('./assets/logo126.png')}
-        style={{width: 100, height: 100}}
+        style={{width: 150, height: 150, }}
 
         />
       </View>
-      <DrawerItemList {...props}/>
-      <View style={{flexDirection:'row', justifyContent:'space-between', padding:32, marginTop: 85}}>
+      <DrawerItemList {...props} />
+      <View style={{flexDirection:'row', justifyContent:'space-between', padding:32, marginTop: 45, backgroundColor:'#5da665'}}>
       <Ionicons
       name='logo-instagram'
       size={30}
@@ -86,6 +89,7 @@ function App() {
         headerLeft: false,
         headerRight: ()=><DrawerToggleButton />,
         headerTitleAlign: 'center',
+        
       }}
       
       >
@@ -103,7 +107,7 @@ function App() {
         />
         <Drawer.Screen name="iCover" component={IcoverScreen}
          options={{
-          title: "iCover",
+          drawerLabelStyle:{ fontSize: 20},
           drawerIcon: ({focused, size})=>(
             <Ionicons name="eye-outline" size={32} color="#da0d09" />
             
@@ -113,7 +117,8 @@ function App() {
         <Drawer.Screen name="Адаптація під впливом стресу" component={AdaptationScreen}
         
         options={{
-          title: "Адаптація",
+          drawerLabel:'Адаптація',
+          drawerLabelStyle:{ fontSize: 20},
           drawerIcon: ({focused, size})=>(
             <Ionicons name="flower-outline" size={32} color="#0b8725" />
             
@@ -123,7 +128,7 @@ function App() {
         />
         <Drawer.Screen name="Сон" component={SleepScreen}
          options={{
-          title: "Сон",
+          drawerLabelStyle:{ fontSize: 20},
           drawerIcon: ({focused, size})=>(
             <Ionicons name="moon-outline" size={32} color="#6aa6f9" />  
           )
@@ -132,7 +137,8 @@ function App() {
         />
         <Drawer.Screen name="Алкоголь і наркотики" component={DrugsScreen}
         options={{
-          title: "Алкоголь і наркотики",
+          drawerLabel:'Алкоголь',
+          drawerLabelStyle:{ fontSize: 20},
           drawerIcon: ({focused, size})=>(
             <Ionicons name="wine-outline" size={32} color="#e62d7a" />  
           )
@@ -141,7 +147,8 @@ function App() {
         />
         <Drawer.Screen name="Горе" component={GriefScreen}
         options={{
-          title: "Горе",
+          drawerLabel:'Горе',
+          drawerLabelStyle:{ fontSize: 20},
           drawerIcon: ({focused, size})=>(
             <Ionicons name="heart-half-outline" size={32} color="#000609" />  
           )
@@ -151,7 +158,8 @@ function App() {
         <Drawer.Screen name="Управління стресом під час операцій" component={DrivingScreen}
         
         options={{
-          title: "Управління стресом",
+          drawerLabel:'Управління',
+          drawerLabelStyle:{ fontSize: 20},
           drawerIcon: ({focused, size})=>(
             <Ionicons name="build-outline" size={32} color="#fad707" />  
           )
@@ -160,7 +168,8 @@ function App() {
         />
         <Drawer.Screen name="Згуртованність" component={GurtabilityScreen} 
           options={{
-            title: "Згуртованність",
+            drawerLabel:'Згуртованність',
+            drawerLabelStyle:{ fontSize: 20},
             drawerIcon: ({focused, size})=>(
               <Ionicons name="people-outline" size={32} color="#f99b10" />  
             )
