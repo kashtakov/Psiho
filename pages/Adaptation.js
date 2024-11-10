@@ -6,6 +6,9 @@ import MentalStateObservationScreen from "../components/MentalStateObservationSc
 import StressManagement from "../components/StressManagement";
 import ProblemSolvingSteps from "../components/ProblemSolvingSteps";
 import RelaxationScreen from "../components/RelaxationScreen";
+import PsychosisInfoScreen from "../components/PsyhosisInfoScreen";
+import SuicideRiskAssessmentScreen from "../components/SuicideRiskAssessmentScreen";
+import SuicidePreventionScreen from "../components/SuicidePreventionScreen";
 
 function AdaptationScreen({ navigation }) {
 
@@ -37,6 +40,9 @@ function AdaptationScreen({ navigation }) {
   <StressManagement/>
   <ProblemSolvingSteps/>
   <RelaxationScreen/>
+  <PsychosisInfoScreen/>
+  <SuicideRiskAssessmentScreen/>
+  <SuicidePreventionScreen/>
       </ScrollView>
     );
   }
